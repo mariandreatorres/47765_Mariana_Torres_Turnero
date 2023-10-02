@@ -24,13 +24,14 @@ def profesional(request):  ###prueba
 	return HttpResponse(documento_1)
 
 def horario(request):
-	return render (request,"Appturnero/horarios.html")
+	return render (request,"AppTurnero/horarios.html")
 
 def agenda(request):
-	return render (request,"Appturnero/agenda.html")
+	return render (request,"AppTurnero/agenda.html")
 
 def paciente(request):
-	return render (request,"Appturnero/pacientes.html")
+	return render (request,"AppTurnero/pacientes.html")
     
-
+def turnos(request):
+	return render (request,"AppTurnero/turnos.html")
 
