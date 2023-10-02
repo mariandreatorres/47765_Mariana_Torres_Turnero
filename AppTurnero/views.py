@@ -32,6 +32,6 @@ def agenda(request):
 def paciente(request):
 	return render (request,"AppTurnero/pacientes.html")
     
-def turnos(request):
-	return render (request,"AppTurnero/turnos.html")
 
+def iniciop(request):
+	return render (request,"Appturnero/iniciop.html")

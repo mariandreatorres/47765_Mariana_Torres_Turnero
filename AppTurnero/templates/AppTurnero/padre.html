@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {%load static %}
+        {% load static %}
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -10,7 +10,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'AppTurnero/assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'AppTurnero/css/styles.css'%}" rel="stylesheet" />
+        <link href="{% static 'AppTurnero/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -20,9 +20,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Inicio' % }}">Página de Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Turnos'}">Turnos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Acerca de Nosotras</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url '' %}}">Página de Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Agenda' %}">Turnos Asignados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Profesionales' %}">Acerca de Nosotras</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contáctanos</a></li>
                         
                     </ul>
@@ -66,7 +66,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">Horarios</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                            <p class="card-text">Conoce los horarios de nuestros Profesionales.</p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">Agenda</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                            <p class="card-text">Consulta tus turnos asignados.</p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
