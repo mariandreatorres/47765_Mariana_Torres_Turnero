@@ -37,12 +37,14 @@ def formprofesional(request):
 	
 	if request.method == "POST":
 
-		valor_1 = FormProfesionales(request.POST)
+		valor1 = FormProfesionales(request.POST)
 		
-		if valor_1.is_valid():
-			info = valor_1.cleaned_data
-			DatosProfesionales=DatosProfesionales[[]]
+		if valor1.is_valid():
+			info = valor1.cleaned_data
+			DatosProfesionales=DatosProfesionales(nombre=info[fnombre],apellido=info[fapellido],mail=info[fmail],cuit=info[fcuit],razon_social=info[frazon_social], especialidad=info[fespecialidad])
 			DatosProfesionales.save()
 			return render(request,"AppTurnero/inicio.html")
-	
-	return render (request,"AppTurnero/profesionalFormulario.html")
+	else:
+		valor1 = FormProfesionales()
+
+	return render (request,"AppTurnero/profesionalFormulario.html", {"registro1":valor1})
