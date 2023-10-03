@@ -9,6 +9,17 @@
 
 {% block encabezado %}
 
-PROFESIONALES 
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+
+            <form action="" method="POST" ></form>
+            
+        {% else %}
+
+        {% endif %}
+    
+    {% else %}
+
+    {% endif %}
 
 {% endblock %}

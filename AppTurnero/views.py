@@ -41,7 +41,7 @@ def formprofesional(request):
 		
 		if valor1.is_valid():
 			info = valor1.cleaned_data
-			DatosProfesionales=DatosProfesionales(nombre=info[fnombre],apellido=info[fapellido],mail=info[fmail],cuit=info[fcuit],razon_social=info[frazon_social], especialidad=info[fespecialidad])
+			DatosProfesionales=DatosProfesionales(nombre=info["fnombre"],apellido=info["fapellido"],mail=info["fmail"],cuit=info["fcuit"],razon_social=info["frazon_social"], especialidad=info["fespecialidad"])
 			DatosProfesionales.save()
 			return render(request,"AppTurnero/inicio.html")
 	else:
