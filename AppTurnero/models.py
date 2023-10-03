@@ -3,7 +3,6 @@ from datetime import datetime
 
 class DatosProfesionales(models.Model):
     id_profesional = models.AutoField(primary_key=True)
-    avatar_profesional = models.ImageField
     nombre = models.CharField(default="", max_length=60)
     apellido = models.CharField(default="", max_length=60)
     mail = models.CharField(default="", max_length=60)
@@ -28,5 +27,7 @@ class Pacientes(models.Model):
     nombre = models.CharField(default="", max_length=60)
     apellido = models.CharField(default="", max_length=60)
     obra_social = models.CharField(default="", max_length=60)
+    numero_os = models.IntegerField
+    avatar = models.ImageField
 
 
