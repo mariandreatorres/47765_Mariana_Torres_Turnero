@@ -26,6 +26,9 @@ def profesional(request):  ###prueba
 def horario(request):
 	return render (request,"AppTurnero/horarios.html")
 
+def contactanos(request):
+	return render (request,"AppTurnero/contactanos.html")
+
 def agenda(request):
 	return render (request,"AppTurnero/agenda.html")
 

@@ -20,10 +20,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url '' %}}">Página de Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Pacientes' %}">Mis Datos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Agenda' %}">Turnos Asignados</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Profesionales' %}">Acerca de Nosotras</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contáctanos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}">Contáctanos</a></li>
                         
                     </ul>
                 </div>
@@ -35,10 +35,10 @@
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'AppTurnero/DENT_SALUD.jpg' %}" alt="..." /></div>
                 <div class="col-lg-5">
-                    <h1 class="font-weight-light">Centro Odontológico DENT SALUD</h1>
-                    <p>En nuestro centro odontológico, encontrarás profesionales dedicadas a tu salud bucal.</p>
-                    <p>Apúntante con nosotras para mejorar, tratar o cuidar tu boca.</p>
-                    <a class="btn btn-primary" href="#!">Agéndate. Te esperamos!</a>
+                    {% block titulo %}
+                    
+
+                    {% endblock %}
                 </div>
             </div>
             <!-- Call to Action-->
@@ -59,7 +59,7 @@
                             <h2 class="card-title">Profesionales</h2>
                             <p class="card-text">Conoce a nuestros profesionales.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Profesionales' % }">Mas Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Profesionales' %}">Mas Info</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -68,7 +68,7 @@
                             <h2 class="card-title">Horarios</h2>
                             <p class="card-text">Conoce los horarios de nuestros Profesionales.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Horarios' %}">More Info</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -77,14 +77,14 @@
                             <h2 class="card-title">Agenda</h2>
                             <p class="card-text">Consulta tus turnos asignados.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Agenda' %}">More Info</a></div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; CoderHouse - Mariana Torres - Comisión 47765 -  2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
