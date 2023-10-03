@@ -27,7 +27,7 @@ class Pacientes(models.Model):
     nombre = models.CharField(default="", max_length=60)
     apellido = models.CharField(default="", max_length=60)
     obra_social = models.CharField(default="", max_length=60)
-    numero_os = models.IntegerField
-    avatar = models.ImageField
+    numero_os = models.IntegerField(default=0)
+    avatar = models.ImageField(default="{% static 'AppTurnero/ava1.jpeg' %}")
 
 
