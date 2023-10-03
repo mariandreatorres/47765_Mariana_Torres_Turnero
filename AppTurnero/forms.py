@@ -1,6 +1,6 @@
 from django import forms
 
-class FormProfesionales(forms.form):
+class FormProfesionales(forms.Form):
 
     nombre = forms.CharField()
     apellido = forms.CharField()
