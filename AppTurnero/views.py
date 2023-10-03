@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppTurnero.models import DatosProfesionales, HorariosProfesionales, Meses, Pacientes
+from AppTurnero.forms import *
 from django.template import Template, Context, loader
 #from django.contrib import admin
 from datetime import datetime
@@ -9,13 +10,6 @@ def inicio(request):
 	return render (request,"Appturnero/inicio.html")
 
 def profesional(request):  ###prueba
-	valor_1 = DatosProfesionales (nombre="Mariana", 
-		 apellido ="Torres",
-    	 mail = "mariandreatorres@gmail.com",
-		 cuit = '27223707489',
-		 razon_social ='Torres, Mariana Andrea',
-		 especialidad = 'Ortodoncista')
-	valor_1.save()
 	return render (request,"Appturnero/profesionales.html")
 
 	
@@ -38,3 +32,17 @@ def paciente(request):
 
 def iniciop(request):
 	return render (request,"Appturnero/iniciop.html")
+
+def formprofesional(request):
+	
+	if request.method == "POST":
+
+		valor_1 = FormProfesionales(request.POST)
+		
+		if valor_1.is_valid():
+			info = valor_1.cleaned_data
+			DatosProfesionales=DatosProfesionales[[]]
+			DatosProfesionales.save()
+			return render(request,"AppTurnero/inicio.html")
+	
+	return render (request,"AppTurnero/profesionalFormulario.html")

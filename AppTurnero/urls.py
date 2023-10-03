@@ -9,4 +9,5 @@ path('horarios/', horario, name = "Horarios"),
 path('agenda/', agenda, name = "Agenda"),
 path('pacientes/', paciente, name = "Pacientes"),
 path('contacto/', contactanos, name = "Contactanos"),
+path('profesionalFormulario/', formprofesional , name = "FormProfesional"),
 ]

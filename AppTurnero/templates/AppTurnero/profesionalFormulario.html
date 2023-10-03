@@ -1,0 +1,46 @@
+{% extends "AppTurnero/padre.html" %}
+
+{% load static %}
+    
+<!DOCTYPE html>
+<html lang="es">    
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="'Mi primera APP'" />
+    <meta name="author" content="'47765 - Mariana Torres'" />
+    <title>Centro Odontológico DENT SALUD</title>
+    <!-- Favicon-->
+</head>
+<body>
+
+{% block titulo %}
+<h1 class="font-weight-light">Ingrese los datos de Profesionales</h1>
+
+<from action = "/AppTurnero/formprofesional" method="POST"> {% csrf_token %} 
+
+<p>Nombre:        <input type="text" name "nombre"></p>
+<p>Apellido:      <input type="text" name "apellido"></p>
+<p>Mail :         <input type="text" name "mail"></p>
+<p>Nro_Cuit:      <input type="text" name "cuit"></p>
+<p>Razón Social:  <input type="text" name "razon"></p>
+<p>Especialidad:  <input type="text" name "especialidad"></p>
+
+<input type = "submit" value="Enviar">
+
+</from>
+
+{% endblock %}
+    
+    {% block encabezado %}
+
+    DENT SALUD. PROFESIONALES 
+    
+    {% endblock %}
+    
+
+</body>
+
+
+
+</html>
