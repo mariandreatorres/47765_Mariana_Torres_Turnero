@@ -4,16 +4,23 @@
     
 {% block titulo %}
 <h1 class="font-weight-light">Ingrese los datos de Profesionales</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
 
-    <from action="" method="POST"> {% csrf_token %} 
+    <from action="" method="post"> 
+        
+        {% csrf_token %} 
 
         <table>
 
-            {{valor1.as_table}}
+            {{valor1.as_p}}
 
         </table>
 
-    <input type = "submit" value="Confirmar">
+        <button type="submit">Guardar</button>
+        
 
     </from>
 

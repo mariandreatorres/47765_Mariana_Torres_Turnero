@@ -7,13 +7,18 @@
 {% endblock %}
 
 
-{% block encabezado %}
+{% block subtitulo %}
 
     {% if user.is_authenticated %}
         {% if user.is_superuser %}
 
-            <form action="" method="POST" ></form>
-            
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+
+
         {% else %}
 
         {% endif %}
@@ -22,4 +27,9 @@
 
     {% endif %}
 
+{% endblock %}
+
+{% block pie %}
+
+    DENT SALUD - ALTA FORMULARIO PROFESIONALES 
 {% endblock %}

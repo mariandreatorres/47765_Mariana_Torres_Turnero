@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import *
 from django.http import HttpResponse
 from AppTurnero.models import DatosProfesionales, HorariosProfesionales, Meses, Pacientes
 from AppTurnero.forms import *
@@ -11,7 +12,6 @@ def inicio(request):
 
 def profesional(request):  ###prueba
 	return render (request,"Appturnero/profesionales.html")
-
 
 
 def horario(request):
@@ -30,22 +30,25 @@ def paciente(request):
 def iniciop(request):
 	return render (request,"Appturnero/iniciop.html")
 
-def formprofesional(request):
-	
-	if request.method == "POST":
+def profesional(request):
+    if request.method == 'POST':
+        form = DatosProfesionalesForm(request.POST)
+        if form.is_valid():
+            # Guardamos los datos
+            DatosProfesionalesForm.objects.create(
+                nombre=form.cleaned_data['nombre'],
+                apellido=form.cleaned_data['apellido'],
+                mail=form.cleaned_data['mail'],
+                cuit=form.cleaned_data['cuit'],
+                razon_social=form.cleaned_data['razon_social'],
+                especialidad=form.cleaned_data['especialidad']
+            )
+            # Redireccionamos a la misma página después de guardar
+            return redirect('profesionales')
 
-		valor1 = FormProfesionales(request.POST)
-		
-		if valor1.is_valid():
-			info = valor1.cleaned_data
-			DatosProfesionales=DatosProfesionales(nombre=info["fnombre"],apellido=info["fapellido"],mail=info["fmail"],cuit=info["fcuit"],razon_social=info["frazon_social"], especialidad=info["fespecialidad"])
-			DatosProfesionales.save()
-			return render(request,"AppTurnero/inicio.html")
-	else:
-		valor1 = FormProfesionales()
+    else:
+        form = DatosProfesionalesForm()
 
-	return render (request,"AppTurnero/profesionalFormulario.html", {"registro1":valor1})
+    return render(request, "AppTurnero/profesionales.html", {'form': form})
 
-#	plantilla = loader.get_template("principal.html")
-#	documento_1 = plantilla.render(Datos_profesionales)
-#	return HttpResponse(documento_1)
+

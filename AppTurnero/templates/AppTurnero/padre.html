@@ -22,7 +22,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url 'Pacientes' %}">Mis Datos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Agenda' %}">Turnos Asignados</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Profesionales' %}">Acerca de Nosotras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profesionales' %}">Acerca de Nosotras</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}">Contáctanos</a></li>
                         
                     </ul>
@@ -39,12 +39,18 @@
                     
 
                     {% endblock %}
+
+                    {% block subtitulo %}
+                    
+
+                    {% endblock %}
+
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">
-                    {% block encabezado %}
+                    {% block pie %}
 
 
                     {% endblock %}

@@ -1,10 +1,11 @@
 from django import forms
 
-class FormProfesionales(forms.Form):
 
-    fnombre = forms.CharField()
-    fapellido = forms.CharField()
-    fmail = forms.CharField()
-    fcuit = forms.CharField()
-    frazon_social = forms.CharField()
-    fespecialidad = forms.CharField()
+class DatosProfesionalesForm(forms.Form):
+    nombre = forms.CharField(max_length=100)
+    apellido = forms.CharField(max_length=100)
+    mail = forms.EmailField()
+    cuit = forms.CharField(max_length=11)
+    razon_social = forms.CharField(max_length=100)
+    especialidad = forms.CharField(max_length=100)
+
