@@ -12,10 +12,7 @@ def inicio(request):
 def profesional(request):  ###prueba
 	return render (request,"Appturnero/profesionales.html")
 
-	
-	plantilla = loader.get_template("principal.html")
-	documento_1 = plantilla.render(Datos_profesionales)
-	return HttpResponse(documento_1)
+
 
 def horario(request):
 	return render (request,"AppTurnero/horarios.html")
@@ -48,3 +45,7 @@ def formprofesional(request):
 		valor1 = FormProfesionales()
 
 	return render (request,"AppTurnero/profesionalFormulario.html", {"registro1":valor1})
+
+#	plantilla = loader.get_template("principal.html")
+#	documento_1 = plantilla.render(Datos_profesionales)
+#	return HttpResponse(documento_1)

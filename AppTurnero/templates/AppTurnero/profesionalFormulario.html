@@ -2,22 +2,10 @@
 
 {% load static %}
     
-<!DOCTYPE html>
-<html lang="es">    
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="'Mi primera APP'" />
-    <meta name="author" content="'47765 - Mariana Torres'" />
-    <title>Centro Odontológico DENT SALUD</title>
-    <!-- Favicon-->
-</head>
-<body>
-
 {% block titulo %}
 <h1 class="font-weight-light">Ingrese los datos de Profesionales</h1>
 
-    <from action = "" method="POST"> {% csrf_token %} 
+    <from action="" method="POST"> {% csrf_token %} 
 
         <table>
 
@@ -31,11 +19,10 @@
 
 {% endblock %}
     
-    {% block encabezado %}
+{% block encabezado %}
 
     DENT SALUD. PROFESIONALES 
-    
-    {% endblock %}
+{% endblock %}
     
 
 </body>
