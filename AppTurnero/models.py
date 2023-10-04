@@ -5,7 +5,7 @@ class DatosProfesionales(models.Model):
     id_profesional = models.AutoField(primary_key=True)
     nombre = models.CharField(default="", max_length=60)
     apellido = models.CharField(default="", max_length=60)
-    mail = models.CharField(default="", max_length=60)
+    mail = models.EmailField(default="", max_length=60)
     cuit = models.CharField(default="", max_length=11)
     razon_social = models.CharField(default="", max_length=60)
     especialidad = models.CharField(default="", max_length=60)
