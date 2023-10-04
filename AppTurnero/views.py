@@ -10,9 +10,6 @@ from datetime import datetime
 def inicio(request):
 	return render (request,"Appturnero/inicio.html")
 
-#def profesional(request):  ###prueba
-#	return render (request,"Appturnero/profesionales.html")
-
 
 def horario(request):
 	return render (request,"AppTurnero/horarios.html")
@@ -23,9 +20,30 @@ def contactanos(request):
 def agenda(request):
 	return render (request,"AppTurnero/agenda.html")
 
+
 def paciente(request):
-	return render (request,"AppTurnero/pacientes.html")
-    
+    if request.method == 'POST':
+        fpaciente = DatosPacientesForm(request.POST)
+        
+        if fpaciente.is_valid():
+            # Guardamos los datos
+            infopac = fpaciente.cleaned_data
+            Pacientes.objects.create(
+                nombre=infopac['nombre'],
+                apellido=infopac['apellido'],
+                obra_social=infopac['obra_social'],
+                numero_os=infopac['numero_os'],
+                avatar=infopac['avatar']
+            )
+            # Redireccionamos a la misma página después de guardar
+            return render(request, "AppTurnero/inicio.html")
+
+    else:
+        fpaciente = DatosPacientesForm()
+
+    return render(request, "AppTurnero/pacientes.html", {'form': fpaciente})
+
+
 
 def iniciop(request):
 	return render (request,"Appturnero/iniciop.html")

@@ -3,7 +3,7 @@ from AppTurnero.views import *
 
 urlpatterns = [
 path("", inicio, name ="Inicio"),
-path('inicio/', iniciop, name = "InicioP"),
+path('inicio/', inicio, name = "Inicio"),
 path('profesionales/', profesional, name = "profesionales"),
 path('horarios/', horario, name = "Horarios"),
 path('agenda/', agenda, name = "Agenda"),
