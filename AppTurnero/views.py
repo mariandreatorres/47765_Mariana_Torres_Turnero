@@ -10,8 +10,8 @@ from datetime import datetime
 def inicio(request):
 	return render (request,"Appturnero/inicio.html")
 
-def profesional(request):  ###prueba
-	return render (request,"Appturnero/profesionales.html")
+#def profesional(request):  ###prueba
+#	return render (request,"Appturnero/profesionales.html")
 
 
 def horario(request):
@@ -33,18 +33,20 @@ def iniciop(request):
 def profesional(request):
     if request.method == 'POST':
         form = DatosProfesionalesForm(request.POST)
+    
         if form.is_valid():
             # Guardamos los datos
-            DatosProfesionalesForm.objects.create(
-                nombre=form.cleaned_data['nombre'],
-                apellido=form.cleaned_data['apellido'],
-                mail=form.cleaned_data['mail'],
-                cuit=form.cleaned_data['cuit'],
-                razon_social=form.cleaned_data['razon_social'],
-                especialidad=form.cleaned_data['especialidad']
-            )
-            # Redireccionamos a la misma página después de guardar
-            return redirect('profesionales')
+            info = form.cleaned_data
+            DatosProfesionales.objects.create(
+				nombre=info['nombre'],
+                apellido=info['apellido'],
+                mail=info['mail'],
+                cuit=info['cuit'],
+                razon_social=info['razon_social'],
+                especialidad=info['especialidad']          )
+			# Redireccionamos a la misma página después de guardar
+            
+            return render(request,"AppTurnero/inicio.html")
 
     else:
         form = DatosProfesionalesForm()
@@ -52,3 +54,4 @@ def profesional(request):
     return render(request, "AppTurnero/profesionales.html", {'form': form})
 
 
+ 
