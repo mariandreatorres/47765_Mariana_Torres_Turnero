@@ -23,25 +23,24 @@ def agenda(request):
 
 def paciente(request):
     if request.method == 'POST':
-        fpaciente = DatosPacientesForm(request.POST)
+        form = DatosPacientesForm(request.POST)
         
-        if fpaciente.is_valid():
+        if form.is_valid():
             # Guardamos los datos
-            infopac = fpaciente.cleaned_data
+            infopac = form.cleaned_data
             Pacientes.objects.create(
                 nombre=infopac['nombre'],
                 apellido=infopac['apellido'],
                 obra_social=infopac['obra_social'],
                 numero_os=infopac['numero_os'],
-                avatar=infopac['avatar']
-            )
+                avatar=infopac['avatar'])
             # Redireccionamos a la misma página después de guardar
             return render(request, "AppTurnero/inicio.html")
 
     else:
-        fpaciente = DatosPacientesForm()
+        form = DatosPacientesForm()
 
-    return render(request, "AppTurnero/pacientes.html", {'form': fpaciente})
+    return render(request, "AppTurnero/pacientes.html", {'form': form})
 
 
 

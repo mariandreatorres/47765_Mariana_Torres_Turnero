@@ -10,7 +10,7 @@
 {% block subtitulo %}
 
     <h1 class="font-weight-light">Modifica tus datos</h1>
-    <form method="POST">
+    <form action="AppTurnero/pacientes.html" method="POST">
 
         {% csrf_token %}
         {{ form.as_p }}

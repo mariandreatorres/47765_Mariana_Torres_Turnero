@@ -1,4 +1,5 @@
 from django import forms
+from .models import *
 
 
 class DatosProfesionalesForm(forms.Form):
@@ -10,8 +11,22 @@ class DatosProfesionalesForm(forms.Form):
     especialidad = forms.CharField(max_length=60)
 
 class DatosPacientesForm(forms.Form):
-    nombre = forms.CharField(max_length=60)
-    apellido = forms.CharField(max_length=60)
-    obra_social = forms.CharField(max_length=60)
-    numero_os = forms.IntegerField(default=0)
-    avatar = forms.ImageField(default="{% static 'AppTurnero/ava1.jpeg' %}")
+    class Meta:
+        model = Pacientes
+        fields = ['nombre', 'apellido', 'obra_social', 'numero_os', 'avatar']
+    # Añade una validación opcional para el archivo, si es necesario
+    def clean_avatar(self):
+        avatar = self.cleaned_data.get('avatar')
+        if avatar:
+            # Realiza las validaciones necesarias aquí (tamaño, tipo, etc.)
+            pass
+        return avatar
+    #nombre = forms.CharField(max_length=60)
+    #apellido = forms.CharField(max_length=60)
+    #obra_social = forms.CharField(max_length=60)
+    #numero_os = forms.IntegerField(default=0)
+    #avatar = forms.ImageField(default="{% static 'AppTurnero/ava1.jpeg' %}")
+
+
+    
+    
