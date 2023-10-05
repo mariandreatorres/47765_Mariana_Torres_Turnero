@@ -10,14 +10,13 @@
 {% block subtitulo %}
 
     <h1 class="font-weight-light">Modifica tus datos</h1>
-    <form action="AppTurnero/pacientes.html" method="POST">
-
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-
-    <button type="submit">Confirmar los Cambios</button>
+        <button type="submit">Confirmar los Cambios</button>
+    
     </form>
-
+    
 {% endblock %}
 
 

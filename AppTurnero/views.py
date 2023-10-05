@@ -22,8 +22,9 @@ def agenda(request):
 
 
 def paciente(request):
+    form= DatosPacientesForm()
     if request.method == 'POST':
-        form = DatosPacientesForm(request.POST)
+        form = DatosPacientesForm(request.POST, request.FILES)
         
         if form.is_valid():
             # Guardamos los datos
@@ -38,6 +39,7 @@ def paciente(request):
             return render(request, "AppTurnero/inicio.html")
 
     else:
+        print(form.errors)
         form = DatosPacientesForm()
 
     return render(request, "AppTurnero/pacientes.html", {'form': form})
@@ -48,6 +50,7 @@ def iniciop(request):
 	return render (request,"Appturnero/iniciop.html")
 
 def profesional(request):
+    form=DatosPacientesForm()
     if request.method == 'POST':
         form = DatosProfesionalesForm(request.POST)
     
