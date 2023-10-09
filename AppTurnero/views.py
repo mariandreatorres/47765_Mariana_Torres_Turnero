@@ -6,10 +6,30 @@ from AppTurnero.forms import *
 from django.template import Template, Context, loader
 #from django.contrib import admin
 from datetime import datetime
+#from django.views.generic import ListView
+#from django.views.generic.detail import DetailView
+#from django.views.generic.edit import EditView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.forms import AuthenticationForm
 
 def inicio(request):
 	return render (request,"Appturnero/inicio.html")
 
+def InicioSesion(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data =   request.POST)
+        if form.is_valid():
+             user = form.cleaned_data.get["username"]
+             pwd =  form.cleaned_data.get["password"]
+             usuario = Authenticate(username = user,password = pwd)
+        
+             if usuario:
+                 login (request,usuario)
+                 return render(request,"AppTurnero/inicio.hmtl",{"Mensaje":f"Bienvenido (usuario)"})
+        else:
+             return render(request,"AppTurnero/inicio.html",{"Mensaje":"Usuario Incorrecto."})
+    else:
+       form = AuthenticationForm()  
+    return render(request,"AppTurnero/login.html",{"formulario":form})
 
 def horario(request):
 	return render (request,"AppTurnero/horarios.html")

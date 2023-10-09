@@ -1,6 +1,5 @@
 from django.urls import path, include
-from AppTurnero.views import *
-# urls.py
+from AppTurnero.views import inicio, InicioSesion, iniciop, contactanos, horario, agenda, paciente, profesional
 from django.conf import settings
 from django.conf.urls.static import static
 
