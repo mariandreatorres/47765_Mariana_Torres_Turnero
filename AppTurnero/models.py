@@ -2,6 +2,9 @@ from django.db import models
 from datetime import datetime
 
 class DatosProfesionales(models.Model):
+    def __str__(self):
+
+        return f"nombre: {self.nombre}------ Apellido:{self.apellido}------ Mail: {self.mail}------ Cuit: {self.cuit}   ------ Email: {self.email}------ Razon Social: {self.razon_social} ------ Especialidad: {self.especialidad}"
     id_profesional = models.AutoField(primary_key=True)
     nombre = models.CharField(default="", max_length=60)
     apellido = models.CharField(default="", max_length=60)
