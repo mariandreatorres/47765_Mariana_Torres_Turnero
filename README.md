@@ -6,3 +6,7 @@ La idea de este proyecto fue ampliar mis conocimientos de Python y Django.
 
 Comenzando 🚀
 
+Para instalar la WEB es necesario generar las Bases de Datos.
+
+
+
