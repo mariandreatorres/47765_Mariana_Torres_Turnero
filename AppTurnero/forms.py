@@ -33,7 +33,23 @@ class DatosPacientesForm(forms.Form):
                 pass
             return avatar
     
+##class UsuarioRegistro(UserCreationForm):
+##     email = forms.EmailField()
+##     password1 = forms.CharField(label = "Contraseña", widget=forms.PasswordInput)
+##     password1 = forms.CharField(label = "Repetir la Contraseña", widget=forms.PasswordInput)
 
+##     class Meta:
+##          model = User
+##          fields = ["username", "email","lastname","name","password1","password2"]
+
+##class FormEditarUsuario(UserCreationForm):
+##     email = forms.EmailField()
+##     password1 = forms.CharField(label = "Contraseña", widget=forms.PasswordInput)
+##     password1 = forms.CharField(label = "Repetir la Contraseña", widget=forms.PasswordInput)
+##     class Meta:
+##          model = User
+##          fields = ["email","lastname","name","password1","password2"]
+          
 
     
     

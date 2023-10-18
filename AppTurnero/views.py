@@ -64,6 +64,11 @@ def paciente(request):
 
     return render(request, "AppTurnero/pacientes.html", {'form': form})
 
+def leerProfesionales(request):
+     profesionales = DatosProfesionales.objects.all()
+     contexto = {"professional":profesionales}
+     return render(request, "AppTurnero/leerProfesionales.html",contexto)
+
 
 
 def iniciop(request):
@@ -93,5 +98,8 @@ def profesional(request):
 
     return render(request, "AppTurnero/profesionales.html", {'form': form})
 
-
+def editarusuario(request):
+     usuario = request.user
+     if request.method == 'POST':
+          form = FormEditarUsuario()
  
