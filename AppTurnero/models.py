@@ -22,16 +22,6 @@ class HorariosProfesionales(models.Model):
     hora_inicio = models.TimeField(default=datetime.now)
     hora_fin = models.TimeField(default=datetime.now)
 
-class Meses(models.Model):
-    def __str__(self):
-
-        return f"periodo: {self.periodo} -- id_profesional: {self.id_profesional} -- fecha: {self.fecha}  -- hora: {self.hora}"
-
-    periodo = models.CharField(default="202301", max_length=10)
-    id_profesional = models.ForeignKey(DatosProfesionales, on_delete=models.CASCADE)
-    fecha = models.DateField(default=datetime.today)
-    hora = models.TimeField(default=datetime.now)
-
 class Pacientes(models.Model):
     def __str__(self):
 
@@ -43,4 +33,12 @@ class Pacientes(models.Model):
     numero_os = models.IntegerField(default=0)
     avatar = models.ImageField(default="{% static 'AppTurnero/ava1.jpeg' %}")
 
+class Meses(models.Model):
+    def __str__(self):
 
+        return f"id_horario: {self.id_horario} -- id_paciente: {self.id_paciente} -- id_profesional: {self.id_profesional} -- fecha: {self.fecha}  -- hora: {self.hora}"
+    id_horario = models.AutoField(primary_key=True)
+    id_paciente =  models.ForeignKey(Pacientes, on_delete=models.CASCADE)
+    id_profesional = models.ForeignKey(DatosProfesionales, on_delete=models.CASCADE)
+    fecha = models.DateField(default=datetime.today)
+    hora = models.TimeField(default=datetime.now)

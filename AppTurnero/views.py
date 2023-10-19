@@ -23,7 +23,7 @@ def InicioSesion(request):
              usuario = Authenticate(username = user,password = pwd)
         
              if usuario:
-                 login (request,usuario)
+                 login(request,usuario)
                  return render(request,"AppTurnero/inicio.hmtl",{"Mensaje":f"Bienvenido (usuario)"})
         else:
              return render(request,"AppTurnero/inicio.html",{"Mensaje":"Usuario Incorrecto."})

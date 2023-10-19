@@ -1,0 +1,39 @@
+{% extends "AppTurnero/padre.html" %}
+
+{% load static %}
+    
+{% block titulo %}
+<h1 class="font-weight-light">Ingrese los Horarios de Profesionales</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ formhorario.as_p }}
+    
+
+    <from action="" method="post"> 
+        
+        {% csrf_token %} 
+
+        <table>
+
+            {{valor2.as_p}}
+
+        </table>
+
+        <button type="submit">Guardar</button>
+        
+
+    </from>
+
+{% endblock %}
+    
+{% block encabezado %}
+
+    DENT SALUD. HORARIOS PROFESIONALES 
+{% endblock %}
+    
+
+</body>
+
+
+
+</html>
