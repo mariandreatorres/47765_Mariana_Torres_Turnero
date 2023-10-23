@@ -10,7 +10,7 @@ path("", inicio, name ="Inicio"),
 path('inicio/', inicio, name = "Inicio"),
 path('profesionales/', profesional, name = "profesionales"),
 path('horarios/', horario, name = "Horarios"),
-path('agenda/', agenda, name = "Agenda"),
+path('agenda/', agendad, name = "Agenda"),
 path('pacientes/', paciente, name = "Pacientes"),
 path('contacto/', contactanos, name = "Contactanos"),
 

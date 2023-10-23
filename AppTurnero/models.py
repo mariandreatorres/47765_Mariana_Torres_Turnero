@@ -1,4 +1,5 @@
 from django.db import models
+from django.db import migrations
 from datetime import datetime
 
 class DatosProfesionales(models.Model):
@@ -21,6 +22,7 @@ class HorariosProfesionales(models.Model):
     dia_semana = models.CharField(default="", max_length=10)
     hora_inicio = models.TimeField(default=datetime.now)
     hora_fin = models.TimeField(default=datetime.now)
+    duracion_consulta = models.IntegerField(default=0)
 
 class Pacientes(models.Model):
     def __str__(self):
@@ -33,12 +35,21 @@ class Pacientes(models.Model):
     numero_os = models.IntegerField(default=0)
     avatar = models.ImageField(default="{% static 'AppTurnero/ava1.jpeg' %}")
 
-class Meses(models.Model):
+class AgendaDisponible(models.Model):
     def __str__(self):
-
-        return f"id_horario: {self.id_horario} -- id_paciente: {self.id_paciente} -- id_profesional: {self.id_profesional} -- fecha: {self.fecha}  -- hora: {self.hora}"
-    id_horario = models.AutoField(primary_key=True)
-    id_paciente =  models.ForeignKey(Pacientes, on_delete=models.CASCADE)
+        return f"id_agenda: {self.id_agenda} -- id_profesional: {self.id_profesional} -- fecha: {self.fecha} -- hora: {self.hora} -- ({self.disponibilidad})"
+    id_agenda = models.AutoField(primary_key=True)
     id_profesional = models.ForeignKey(DatosProfesionales, on_delete=models.CASCADE)
-    fecha = models.DateField(default=datetime.today)
-    hora = models.TimeField(default=datetime.now)
+    fecha = models.DateField()
+    hora = models.TimeField()
+    disponibilidad = models.CharField(max_length=1, default='Y')
+
+class AgendaAsignada(models.Model):
+    def __str__(self):
+        return f"id_agenda: {self.id_agenda} -- id_paciente: {self.id_paciente}"
+    id_agenda = models.ForeignKey(AgendaDisponible, on_delete=models.CASCADE)
+    id_paciente =  models.ForeignKey(Pacientes, on_delete=models.CASCADE)
+
+
+
+    

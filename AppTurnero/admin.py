@@ -5,6 +5,7 @@ from AppTurnero.models import *
 
 admin.site.register(DatosProfesionales)
 admin.site.register(HorariosProfesionales)
-admin.site.register(Meses)
+admin.site.register(AgendaAsignada)
+admin.site.register(AgendaDisponible)
 admin.site.register(Pacientes)
 

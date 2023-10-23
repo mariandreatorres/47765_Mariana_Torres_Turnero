@@ -2,7 +2,28 @@ from django import forms
 from .models import *
 
 
+class HorariosProfesionalesForms(forms.Form):
+    id_profesional = forms.ModelChoiceField(queryset=DatosProfesionales.objects.all())
+    dia_semana = forms.CharField()
+    hora_inicio = forms.TimeField()
+    hora_fin = forms.TimeField()
+    duracion_consulta = forms.IntegerField()
+
+class AgendaDisponibleForm(forms.Form):
+    id_profesional = forms.ModelChoiceField(queryset=DatosProfesionales.objects.all())
+    fecha = forms.DateField()
+    hora = forms.TimeField()
+    disponibilidad =forms.CharField()
+
+class AgendaAsignadaForm(forms.Form):
+    id_profesional = forms.ModelChoiceField(queryset=DatosProfesionales.objects.all())
+    id_paciente =  forms.ModelChoiceField(queryset=Pacientes.objects.all())
+    fecha = forms.DateField()
+    hora = forms.TimeField()
+    disponibilidad =forms.CharField()
+
 class DatosProfesionalesForm(forms.Form):
+    #model = Profesionales
     nombre = forms.CharField(max_length=60)
     apellido = forms.CharField(max_length=60)
     mail = forms.EmailField()
