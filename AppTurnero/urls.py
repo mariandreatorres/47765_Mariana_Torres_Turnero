@@ -21,7 +21,7 @@ path('LeerProf/', leerProfesionales, name = "LeerProf"),
 path('CrearProf/', CrearProfesionales, name = "CrearProf"),
 path('profesionales/', profesional, name = "profesionales"),
 path('eliminarProf/<nombreprof>', EliminarProfesionales, name = "EliminarProfesional"),
-path('editarProf/<nombreprof>', EditarProfesionales, name = "EditarProfesional"),
+path('editarProf/<id_prof>', EditarProfesionales, name = "EditarProfesional"),
 
 
 ## CRUD DE PACIENTES ##
