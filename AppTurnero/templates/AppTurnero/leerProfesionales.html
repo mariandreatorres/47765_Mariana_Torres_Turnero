@@ -15,6 +15,11 @@
     <p>Cuit Profesional: {{prof.cuit}}</p>
     <p>Razón Social Profesional: {{prof.razon_social}}</p>
     <p>Especialidad Profesional: {{prof.especialidad}}<p>
+
+        <button> 
+            <a href="{% url 'EliminarProfesional' prof.nombre %}">Eliminar</a>
+        </button> 
+    
         <br>
         ----------------------
 

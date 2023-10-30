@@ -1,0 +1,27 @@
+{% extends "AppTurnero/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="font-small">Crear Profesionales</h1>
+{% endblock %}
+
+{% block subtitulo %}
+    
+    <h1 class="font-light">Ingresa los datos del nuevo profesional</h1>
+    <form method="POST" enctype="multipart/form-data">
+ 
+        {% csrf_token %}
+        {{ formprof.as_p }}
+
+
+    <button type="submit">Confirmar</button>
+
+    </form>
+
+    
+    {% endblock %}
+    
+    {% block pie %}
+        CREAR PROFESIONALES
+    {% endblock %}

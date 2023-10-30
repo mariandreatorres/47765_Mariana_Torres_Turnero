@@ -130,6 +130,32 @@ def profesional(request):
 
     return render(request, "AppTurnero/profesionales.html", {'form': form})
 
+def CrearProfesionales(request):
+     if request.method == 'POST':
+        formprof = DatosProfesionalesForm(request.POST)
+        if formprof.is_valid():
+             info = formprof.cleaned_data
+             profesional = DatosProfesionales(nombre=info['nombre'],
+                apellido=info['apellido'],
+                mail=info['mail'],
+                cuit=info['cuit'],
+                razon_social=info['razon_social'],
+                especialidad=info['especialidad'] )
+             profesional.save()
+             return render(request,"AppTurnero/inicio.html")
+     else:
+          formprof = DatosProfesionalesForm()
+
+     return render(request, "AppTurnero/crearprofesionales.html", {'formprof': formprof})   
+
+def EliminarProfesionales(request, nombreprof):
+     profesional = DatosProfesionales.objects.get(nombre=nombreprof)
+     profesional.delete()
+
+     profesionales = DatosProfesionales.objects.all()
+
+     listado = {"nombre":profesionales}
+     return render(request, "AppTurnero/leerProfesionales.html",{'profesionales': profesionales})
 
 
 def agendad(request):
