@@ -3,19 +3,24 @@ from AppTurnero.views import * ##inicio, InicioSesion, iniciop, contactanos, hor
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
+from . import views
 
 
 urlpatterns = [
 path("", inicio, name ="Inicio"),
 path('inicio/', inicio, name = "Inicio"),
+path('login/', InicioSesion, name = "login"),
 path('profesionales/', profesional, name = "profesionales"),
 path('horarios/', horario, name = "Horarios"),
 path('agenda/', agendad, name = "Agenda"),
 path('pacientes/', paciente, name = "Pacientes"),
 path('contacto/', contactanos, name = "Contactanos"),
-
+path('horarios/', views.generar_horarios_disponibles, name='Generarhorarios'),
 ## CRUD DE PROFESIONALES ##
 path('LeerProf/', leerProfesionales, name = "LeerProf"),
+
+## CRUD DE PACIENTES ##
+path('LeerPac/',leerPacientes, name="LeerPac"),
 
 ##path('login/', inicioSesion, name = "Login"),
 ##path('register/', registro, name = "SignUp"),

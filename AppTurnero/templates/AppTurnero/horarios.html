@@ -5,10 +5,17 @@
 {% block titulo %}
 <h1 class="font-weight-light">Centro Odontológico DENT SALUD</h1>
 {% endblock %}
+<body>
+    <h1>Horarios Disponibles para {{ profesional.nombre }} el {{ fecha }}</h1>
+    <ul>
+        {% for horario in horarios_disponibles %}
+            <li>{{ horario }}</li>
+        {% endfor %}
 
-
+    </ul>
+</body>
 {% block pie %}
 
-HORARIOS 
+HORARIOS DISPONIBLES
 
 {% endblock %}

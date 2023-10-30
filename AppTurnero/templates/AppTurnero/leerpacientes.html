@@ -1,0 +1,23 @@
+{% extends "AppTurnero/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="font-small">Lista de Pacientes</h1>
+{% endblock %}
+
+{% block subtitulo %}
+    {% for pac in pacientes %}
+    <p>Nombre: {{ pac.nombre }}</p>
+    <p>Apellido: {{ pac.apellido }}</p>
+    <p>Obra Social: {{ pac.obra_social }}</p>
+    <p>Nro Afiliado: {{ pac.numero_os }}</p>
+    <img src="{{ pac.avatar.url }}" alt="Avatar">
+    <hr>  <!-- Línea horizontal para separar pacientes -->
+
+    {% endfor %}
+{% endblock %}
+
+{% block pie %}
+    LISTA DE PACIENTES
+{% endblock %}

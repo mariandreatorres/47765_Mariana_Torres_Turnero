@@ -7,9 +7,22 @@
 <h1 class="font-weight-light">Centro Odontológico DENT SALUD</h1>
                     <p>En nuestro centro odontológico, encontrarás profesionales dedicadas a tu salud bucal.</p>
                     <p>Apúntante con nosotras para mejorar, tratar o cuidar tu boca.</p>
-                    <a class="btn btn-primary" href="{% url 'Agenda' %}">Agéndate. Te esperamos!</a>
+                    
+                
 
 {% endblock %}
+
+{% block subtitulo %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{formulario.as_p}}
+
+    <button type="submit">Iniciar Sesion</button>
+</form>
+
+{% endblock %}
+
 
 {% block pie %}
 

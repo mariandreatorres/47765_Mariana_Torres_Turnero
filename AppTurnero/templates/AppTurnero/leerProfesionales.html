@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "AppTurnero/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="font-small">Lista de Profesionales</h1>
+{% endblock %}
+
+{% block subtitulo %}
     
     {% for prof in professional %}
     <p>Nombre Profesional: {{prof.nombre}}</p>
@@ -14,9 +15,12 @@
     <p>Cuit Profesional: {{prof.cuit}}</p>
     <p>Razón Social Profesional: {{prof.razon_social}}</p>
     <p>Especialidad Profesional: {{prof.especialidad}}<p>
-
-        ###### 
+        <br>
+        ----------------------
 
     {% endfor %}
-</body>
-</html>
+    {% endblock %}
+    
+    {% block pie %}
+        LISTA DE PROFESIONALES
+    {% endblock %}
