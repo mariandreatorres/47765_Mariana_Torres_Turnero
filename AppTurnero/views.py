@@ -158,7 +158,7 @@ def EliminarProfesionales(request, nombreprof):
      return render(request, "AppTurnero/leerProfesionales.html",{'profesionales': profesionales})
 
 def EditarProfesionales(request, nombreprof):
-     profesional = DatosProfesionales.objects.get(nombre=nombreprof)
+     profesional = DatosProfesionales.objects.filter(nombre=nombreprof)
      if request.method == 'POST':
         miformulario =  DatosProfesionalesForm(request.POST, instance=profesional)
         if miformulario.is_valid():
