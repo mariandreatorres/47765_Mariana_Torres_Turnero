@@ -20,7 +20,8 @@ path('horarios/', views.generar_horarios_disponibles, name='Generarhorarios'),
 path('LeerProf/', leerProfesionales, name = "LeerProf"),
 path('CrearProf/', CrearProfesionales, name = "CrearProf"),
 path('profesionales/', profesional, name = "profesionales"),
-path('EliminarProf/<nombreprof>', EliminarProfesionales, name = "EliminarProfeaional"),
+path('eliminarProf/<nombreprof>', EliminarProfesionales, name = "EliminarProfesional"),
+path('editarProf/<nombreprof>', EditarProfesionales, name = "EditarProfesional"),
 
 
 ## CRUD DE PACIENTES ##

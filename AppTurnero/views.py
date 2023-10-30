@@ -157,6 +157,34 @@ def EliminarProfesionales(request, nombreprof):
      listado = {"nombre":profesionales}
      return render(request, "AppTurnero/leerProfesionales.html",{'profesionales': profesionales})
 
+def EditarProfesionales(request, nombreprof):
+     profesional = DatosProfesionales.objects.get(nombre=nombreprof)
+     if request.method == 'POST':
+        miformulario =  DatosProfesionalesForm(request.POST, instance=profesional)
+        if miformulario.is_valid():
+             info = miformulario.cleaned_data
+             profesional.nombre =info['nombre'],
+             profesional.apellido=info['apellido'],
+             profesional.mail=info['mail'],
+             profesional.cuit=info['cuit'],
+             profesional.razon_social=info['razon_social'],
+             profesional.especialidad=info['especialidad'] 
+             profesional.save()
+             return render(request,"AppTurnero/inicio.html")
+     else:
+          miformulario = DatosProfesionalesForm(instance=profesional)
+               
+               #initial={"nombre":profesional.nombre,
+               #                                          "apelliido":profesional.apellildo,
+               #                                          "mail":profesional.mail,
+               #                                          "cuit":profesional.cuit,
+               #                                          "razon_social":profesional.razon_social,
+               #                                          "especialidad":profesional.especialidad,})
+
+  
+     return render(request, "AppTurnero/EditarProfesionales.html",{'miformulario': miformulario, 'profesional': profesional})
+
+
 
 def agendad(request):
     

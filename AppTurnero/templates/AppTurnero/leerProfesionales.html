@@ -17,7 +17,9 @@
     <p>Especialidad Profesional: {{prof.especialidad}}<p>
 
         <button> 
+            <a href="{% url 'EditarProfesional' prof.nombre %}">Editar</a>
             <a href="{% url 'EliminarProfesional' prof.nombre %}">Eliminar</a>
+            
         </button> 
     
         <br>
