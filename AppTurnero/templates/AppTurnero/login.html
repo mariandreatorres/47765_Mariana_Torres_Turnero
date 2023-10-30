@@ -11,6 +11,17 @@
 
 {% endblock %}
 
+{% block subtitulo %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{formulario.as_p}}
+
+    <button type="submit">Iniciar Sesion</button>
+</form>
+
+{% endblock %}
+
 {% block pie %}
 
 BIENVENIDOS. La boca, que es un conjunto de órganos y tejidos, es importante para tener una buena nutrición y mejor calidad de vida.
