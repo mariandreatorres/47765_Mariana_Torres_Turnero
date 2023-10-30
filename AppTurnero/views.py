@@ -73,6 +73,42 @@ def leerPacientes(request):
      listado = {"pacientes":pacientes}
      return render(request, "AppTurnero/leerpacientes.html",listado)
 
+def EditarPacientes(request, id_pac):
+     
+     try:
+        id_pac = int(id_pac)
+        pacientes = Pacientes.objects.get(id_paciente=id_pac)
+     except (ValueError, Pacientes.DoesNotExist):
+         return render(request,"AppTurnero/inicio.html")
+     
+     if request.method == 'POST':
+        pacientes =  DatosPacientesForm(request.POST, instance=profesional)
+        if pacientes.is_valid():
+             #miformulario.save()
+             info = pacientes.cleaned_data
+             profesional.nombre =info['nombre'],
+             profesional.apellido=info['apellido'],
+             profesional.mail=info['mail'],
+             profesional.cuit=info['cuit'],
+             profesional.razon_social=info['razon_social'],
+             profesional.especialidad=info['especialidad'] 
+             profesional.save()
+             return render(request,"AppTurnero/inicio.html")
+     else:
+          miformulario = DatosProfesionalesForm(instance=profesional)
+               
+               #initial={"nombre":profesional.nombre,
+               #                                          "apelliido":profesional.apellildo,
+               #                                          "mail":profesional.mail,
+               #                                          "cuit":profesional.cuit,
+               #                                          "razon_social":profesional.razon_social,
+               #                                          "especialidad":profesional.especialidad,})
+
+  
+     return render(request, "AppTurnero/EditarProfesionales.html",{'miformulario': miformulario, 'profesional': profesional})
+
+
+
 #class ListaPacienes(ListView):
 #     model = Pacientes
 
@@ -170,13 +206,13 @@ def EditarProfesionales(request, id_prof):
         if miformulario.is_valid():
              #miformulario.save()
              info = miformulario.cleaned_data
-             profesional.nombre =info['nombre'],
-             profesional.apellido=info['apellido'],
-             profesional.mail=info['mail'],
-             profesional.cuit=info['cuit'],
-             profesional.razon_social=info['razon_social'],
-             profesional.especialidad=info['especialidad'] 
-             profesional.save()
+             miformulario.nombre =info['nombre'],
+             miformulario.apellido=info['apellido'],
+             miformulario.mail=info['mail'],
+             miformulario.cuit=info['cuit'],
+             miformulario.razon_social=info['razon_social'],
+             miformulario.especialidad=info['especialidad'] 
+             miformulario.save()
              return render(request,"AppTurnero/inicio.html")
      else:
           miformulario = DatosProfesionalesForm(instance=profesional)

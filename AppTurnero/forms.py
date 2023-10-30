@@ -22,14 +22,18 @@ class AgendaAsignadaForm(forms.Form):
     hora = forms.TimeField()
     disponibilidad =forms.CharField()
 
-class DatosProfesionalesForm(forms.Form):
+class DatosProfesionalesForm(forms.ModelForm):
     #model = Profesionales
-    nombre = forms.CharField(max_length=60)
-    apellido = forms.CharField(max_length=60)
-    mail = forms.EmailField()
-    cuit = forms.CharField(max_length=11)
-    razon_social = forms.CharField(max_length=60)
-    especialidad = forms.CharField(max_length=60)
+    class Meta:
+        model = DatosProfesionales
+        fields = '__all__'
+    #id_profesional = forms.ModelChoiceField(queryset=DatosProfesionales.objects.all())
+    #nombre = forms.CharField(max_length=60)
+    #apellido = forms.CharField(max_length=60)
+    #mail = forms.EmailField()
+    #cuit = forms.CharField(max_length=11)
+    #razon_social = forms.CharField(max_length=60)
+    #especialidad = forms.CharField(max_length=60)
 
 class DatosPacientesForm(forms.Form):
         #model = Pacientes

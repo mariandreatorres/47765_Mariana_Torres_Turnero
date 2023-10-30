@@ -18,11 +18,11 @@
     <p>Especialidad Profesional: {{prof.especialidad}}<p>
 
         <button> 
-            <a href="{% url 'EditarProfesional' prof.nombre %}">Editar</a>
+            <a href="{% url 'EditarProfesional' prof.id_profesional %}">Editar</a>
         </button> 
     
         <button> 
-            <a href="{% url 'EliminarProfesional' prof.nombre %}">Eliminar</a>
+            <a href="{% url 'EliminarProfesional' prof.id_profesional %}">Eliminar</a>
         </button> 
     
         <br>
