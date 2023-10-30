@@ -37,11 +37,14 @@ class DatosProfesionalesForm(forms.ModelForm):
 
 class DatosPacientesForm(forms.Form):
         #model = Pacientes
-        nombre = forms.CharField(max_length=60)
-        apellido = forms.CharField(max_length=60)
-        obra_social = forms.CharField(max_length=60)
-        numero_os = forms.IntegerField()
-        avatar = forms.ImageField(required=False)
+    class Meta:
+        model = Pacientes
+        fields = '__all__'
+        #nombre = forms.CharField(max_length=60)
+        #apellido = forms.CharField(max_length=60)
+        #obra_social = forms.CharField(max_length=60)
+        #numero_os = forms.IntegerField()
+        #avatar = forms.ImageField(required=False)
         #fields = ['nombre', 'apellido', 'obra_social', 'numero_os', 'avatar']
     # Añade una validación opcional para el archivo, si es necesario
         def clean_avatar(self):
