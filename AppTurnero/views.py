@@ -82,17 +82,16 @@ def EditarPacientes(request, id_pac):
          return render(request,"AppTurnero/inicio.html")
      
      if request.method == 'POST':
-        pacientes =  DatosPacientesForm(request.POST, instance=profesional)
-        if pacientes.is_valid():
+        miformulario  =  DatosPacientesForm(request.POST, instance=profesional)
+        if miformulario.is_valid():
              #miformulario.save()
              info = pacientes.cleaned_data
-             profesional.nombre =info['nombre'],
-             profesional.apellido=info['apellido'],
-             profesional.mail=info['mail'],
-             profesional.cuit=info['cuit'],
-             profesional.razon_social=info['razon_social'],
-             profesional.especialidad=info['especialidad'] 
-             profesional.save()
+             miformulario.nombre =info['nombre'],
+             miformulario.apellido=info['apellido'],
+             miformulario.obra_social=info['obra_social'],
+             miformulario.numero_os=info['numero_os'],
+             miformulario.avatar=info['avatar']
+             miformulario.save()
              return render(request,"AppTurnero/inicio.html")
      else:
           miformulario = DatosProfesionalesForm(instance=profesional)

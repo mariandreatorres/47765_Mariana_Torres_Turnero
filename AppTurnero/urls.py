@@ -26,7 +26,7 @@ path('editarProf/<id_prof>', EditarProfesionales, name = "EditarProfesional"),
 
 ## CRUD DE PACIENTES ##
 path('LeerPac/',leerPacientes, name="LeerPac"),
-#path('editarPac/<id_pac>', EditarPacientes, name = "EditarPacientes"),
+path('editarPac/<id_pac>', EditarPacientes, name = "EditarPacientes"),
 
 ##path('login/', inicioSesion, name = "Login"),
 ##path('register/', registro, name = "SignUp"),

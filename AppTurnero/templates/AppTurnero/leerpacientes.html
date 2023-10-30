@@ -15,6 +15,16 @@
     <img src="{{ pac.avatar.url }}" alt="Avatar">
     <hr>  <!-- Línea horizontal para separar pacientes -->
 
+    <button> 
+        <a href="{% url 'EditarProfesional' pac.id_pac %}">Editar</a>
+    </button> 
+
+    <button> 
+        <a href="{% url 'EliminarProfesional' pac.id_pac %}">Eliminar</a>
+    </button> 
+
+    <br>
+
     {% endfor %}
 {% endblock %}
 
