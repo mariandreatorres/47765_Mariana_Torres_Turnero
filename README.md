@@ -52,8 +52,6 @@ Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y
 Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra Wiki
 
 # Autores ✒️
-Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
-
 Mariana Torres. Diseño, codificación, testing, puesta en producción y documentación.
 Miguel de Coder Ask. Resolviendo consultas.
 
