@@ -86,7 +86,7 @@ def EditarPacientes(request, id_pac):
 
         if miformulario.is_valid():
              #miformulario.save()
-             info = paciente.cleaned_data
+             info = miformulario.cleaned_data
              miformulario.nombre =info['nombre'],
              miformulario.apellido=info['apellido'],
              miformulario.obra_social=info['obra_social'],
