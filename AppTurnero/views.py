@@ -77,15 +77,16 @@ def EditarPacientes(request, id_pac):
      
      try:
         id_pac = int(id_pac)
-        pacientes = Pacientes.objects.get(id_paciente=id_pac)
+        paciente = Pacientes.objects.get(id_paciente=id_pac)
      except (ValueError, Pacientes.DoesNotExist):
          return render(request,"AppTurnero/inicio.html")
      
      if request.method == 'POST':
-        miformulario  =  DatosPacientesForm(request.POST, instance=profesional)
+        miformulario = DatosPacientesForm(request.POST, instance=paciente)
+
         if miformulario.is_valid():
              #miformulario.save()
-             info = pacientes.cleaned_data
+             info = paciente.cleaned_data
              miformulario.nombre =info['nombre'],
              miformulario.apellido=info['apellido'],
              miformulario.obra_social=info['obra_social'],
@@ -94,7 +95,7 @@ def EditarPacientes(request, id_pac):
              miformulario.save()
              return render(request,"AppTurnero/inicio.html")
      else:
-          miformulario = DatosProfesionalesForm(instance=profesional)
+          miformulario = DatosPacientesForm(instance=paciente)
                
                #initial={"nombre":profesional.nombre,
                #                                          "apelliido":profesional.apellildo,
@@ -104,7 +105,7 @@ def EditarPacientes(request, id_pac):
                #                                          "especialidad":profesional.especialidad,})
 
   
-     return render(request, "AppTurnero/EditarProfesionales.html",{'miformulario': miformulario, 'profesional': profesional})
+     return render(request, "AppTurnero/EditarPacientes.html",{'miformulario': miformulario, 'paciente': paciente})
 
 
 

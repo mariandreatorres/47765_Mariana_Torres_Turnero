@@ -8,6 +8,7 @@
 
 {% block subtitulo %}
     {% for pac in pacientes %}
+    <p>ID Paciente: {{ pac.id_paciente }}</p>
     <p>Nombre: {{ pac.nombre }}</p>
     <p>Apellido: {{ pac.apellido }}</p>
     <p>Obra Social: {{ pac.obra_social }}</p>
@@ -16,11 +17,12 @@
     <hr>  <!-- Línea horizontal para separar pacientes -->
 
     <button> 
-        <a href="{% url 'EditarProfesional' pac.id_pac %}">Editar</a>
+        <a href="{% url 'EditarPacientes' pac.id_paciente %}">Editar</a>
+        
     </button> 
 
     <button> 
-        <a href="{% url 'EliminarProfesional' pac.id_pac %}">Eliminar</a>
+        <a href="{% url 'EditarPacientes' pac.id_paciente %}">Eliminar</a>
     </button> 
 
     <br>

@@ -35,8 +35,7 @@ class DatosProfesionalesForm(forms.ModelForm):
     #razon_social = forms.CharField(max_length=60)
     #especialidad = forms.CharField(max_length=60)
 
-class DatosPacientesForm(forms.Form):
-        #model = Pacientes
+class DatosPacientesForm(forms.ModelForm):
     class Meta:
         model = Pacientes
         fields = '__all__'
